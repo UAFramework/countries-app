@@ -52,6 +52,8 @@ export default function CountryList({region, subregion, setCountry}) {
       fetchCountriesByRegion(region)
     }
   }
+
+  const handleCountryClick = (event) => setCountry(event.target.innerText)
   
   useEffect(() => {
     fetchCountries(region, subregion)
@@ -61,7 +63,7 @@ export default function CountryList({region, subregion, setCountry}) {
     <div id="country-list">
       <ul>
         {
-          countries.map(country => <li key={country} onClick={() => setCountry(country)}>{country}</li>)
+          countries.map(country => <li key={country} onClick={handleCountryClick}>{country}</li>)
         }
       </ul>
     </div>
